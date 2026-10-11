@@ -1,6 +1,6 @@
 # LichtSchnitt
 
-LichtSchnitt ist ein geplantes Ubuntu-Programm zum Erstellen, Vorbereiten und Steuern von CNC-Lasergravur- und Schneidaufträgen. Dieses Repository beginnt mit Version **v0.0.1**: Projektgrundlage, dokumentiertem Zielgerät und einem Prüfprotokoll. Es sendet noch keine Befehle an einen Laser.
+LichtSchnitt ist ein geplantes Ubuntu-Programm zum Erstellen, Vorbereiten und Steuern von CNC-Lasergravur- und Schneidaufträgen. Dieses Repository enthält Version **v0.0.2**: Projektgrundlage, dokumentiertes Zielgerät und die read-only Erkennung passender USB-Seriellgeräte unter Linux. Es sendet keine Daten an einen Laser.
 
 ## Erstes Zielgerät
 
@@ -12,7 +12,7 @@ LichtSchnitt ist ein geplantes Ubuntu-Programm zum Erstellen, Vorbereiten und St
 
 Die Firmwarefamilie ist laut MKS-Quellcode Grbl_ESP32-basiert. Das konkrete Verhalten dieses Geräts gilt erst als bestätigt, wenn die geplanten Tests am RAY5 erfolgreich abgeschlossen wurden. Baudrate, PWM-Höchstwert und weitere Controllerparameter bleiben bis zum Auslesen ausdrücklich offen.
 
-## Version v0.0.1 starten
+## Version v0.0.2 starten
 
 Voraussetzung ist Python 3.10 oder neuer. Es werden keine zusätzlichen Python-Pakete benötigt.
 
@@ -20,9 +20,16 @@ Voraussetzung ist Python 3.10 oder neuer. Es werden keine zusätzlichen Python-P
 cd LichtSchnitt
 PYTHONPATH=src python3 -m lichtschnitt --version
 PYTHONPATH=src python3 -m lichtschnitt profil
+PYTHONPATH=src python3 -m lichtschnitt ports
 ```
 
-Die Befehle zeigen nur Programm- und Geräteinformationen an. Sie öffnen keine serielle Verbindung und steuern weder Bewegung noch Laserleistung.
+`ports` listet USB-Seriellgeräte vom Typ `/dev/ttyUSB*` und `/dev/ttyACM*`, mögliche stabile `/dev/serial/by-id`-Pfade und Dateisystem-Berechtigungen auf. Es wird kein serieller Port geöffnet und es werden keine Bytes gesendet. Mit `watch` lässt sich das An- und Abstecken beobachten:
+
+```bash
+PYTHONPATH=src python3 -m lichtschnitt watch
+```
+
+Beenden mit `Strg+C`. Die Beobachtung fragt nur Linux-Gerätedateien und sysfs-Metadaten ab; Laser und Bewegungen werden nicht angesteuert.
 
 ## Entwicklung prüfen
 
@@ -42,7 +49,6 @@ tests/                  automatisierte Prüfungen
 
 ## Nächste Versionen
 
-- **v0.0.2:** verfügbare serielle Schnittstellen unter Ubuntu erkennen und protokollieren.
 - **v0.0.3:** sichere, lesende Abfragen für Controllerkennung, Status und Einstellungen testen.
 - **v0.1.0:** Kompatibilität am konkreten RAY5 reproduzierbar nachweisen.
 

@@ -25,13 +25,13 @@ Dieses Protokoll führt vom sicheren Erkennen des Zielgeräts zu einem reproduzi
 
 Noch auszuführen, sobald die Schnittstellenerkennung implementiert ist:
 
-1. Maschine per USB mit dem Ubuntu-PC verbinden.
-2. Verfügbare serielle Geräte vor und nach dem Anstecken vergleichen.
-3. Den neu erschienenen Gerätepfad, Berechtigungen und Kernelmeldung protokollieren.
-4. Gerät trennen und erneut verbinden; prüfen, ob der Pfad wiedererkannt wird.
-5. Keine Bytes an den Controller senden.
+1. Im Projektordner `PYTHONPATH=src python3 -m lichtschnitt watch` starten.
+2. Maschine per USB mit dem Ubuntu-PC verbinden.
+3. Den erkannten Gerätepfad, stabilen `/dev/serial/by-id`-Pfad, USB-Kennung und Dateizugriffsrechte protokollieren.
+4. Gerät trennen und erneut verbinden; prüfen, ob beide Ereignisse erkannt werden.
+5. Mit `Strg+C` beenden. Der Port wird nicht geöffnet; es werden keine Bytes an den Controller gesendet.
 
-**Bestanden, wenn:** das Gerät reproduzierbar erkannt wird und der Verbindungsstatus korrekt wechselt.
+**Bestanden, wenn:** das Gerät reproduzierbar erkannt wird, An- und Abstecken korrekt gemeldet werden und keine Daten über die serielle Schnittstelle gesendet werden.
 
 ### v0.0.3 – Lesende Controller-Abfragen
 

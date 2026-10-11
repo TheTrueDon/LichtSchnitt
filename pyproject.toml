@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lichtschnitt"
-version = "0.0.1"
+version = "0.0.2"
 description = "Ubuntu-Anwendung zum Entwerfen und Steuern von CNC-Laseraufträgen"
 readme = "README.md"
 requires-python = ">=3.10"

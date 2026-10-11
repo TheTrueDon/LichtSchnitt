@@ -1,5 +1,12 @@
 # Änderungsprotokoll
 
+## v0.0.2
+
+- USB-Seriellgeräte unter Linux read-only erkennen.
+- Stabile `/dev/serial/by-id`-Pfade, USB-Kennung und Zugriffsrechte anzeigen.
+- An- und Abstecken beobachten, ohne serielle Verbindung zu öffnen oder Daten zu senden.
+- Versionsanzeige auf v0.0.2 aktualisieren.
+
 ## v0.0.1
 
 - Projektgerüst für LichtSchnitt angelegt.
