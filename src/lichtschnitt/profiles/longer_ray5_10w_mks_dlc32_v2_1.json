@@ -1,0 +1,35 @@
+{
+  "profile_schema_version": "1",
+  "profile_id": "longer-ray5-10w-mks-dlc32-v2-1",
+  "machine_name": "Longer RAY5 10W",
+  "machine_type": "blauer Diodenlaser",
+  "workspace_mm": {
+    "width": 400,
+    "height": 400
+  },
+  "controller_name": "MKS DLC32 V2.1",
+  "firmware_reported": "V2.20 (8M.H35.20230626)",
+  "protocol_family_expected": "Grbl_ESP32-basiert; am Gerät noch zu verifizieren",
+  "connection": "USB",
+  "laser_module": {
+    "wavelength_nm": [450, 460],
+    "optical_power_w": [10, 11],
+    "max_input_voltage_v": [12, 12],
+    "max_input_current_a": [3.2, 3.2],
+    "standard": "IEC 60825-1:2014"
+  },
+  "serial_interface": {
+    "baud_rate": null,
+    "data_bits": null,
+    "parity": null,
+    "stop_bits": null,
+    "laser_commands_enabled": false,
+    "motion_commands_enabled": false,
+    "notes": "Schnittstellenwerte und Maschinenreaktionen erst am Gerät ermitteln. Keine Werte aus der Lasermodulspezifikation ableiten."
+  },
+  "verification": {
+    "status": "not_tested",
+    "verified_on_device": false,
+    "notes": "Profil beruht auf Geräteangaben des Projektinhabers. Die konkrete Firmwarekommunikation ist noch nicht geprüft."
+  }
+}
